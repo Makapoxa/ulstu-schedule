@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: user
+
+development:
+  <<: *default
+  database: schedule-dev
+
+test:
+  <<: *default
+  database: schedule-test
+
+production:
+  <<: *default
+  database: schedule
