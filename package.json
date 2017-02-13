@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "cd client && npm install",
-    "rails-server": "foreman start -f Procfile.dev",
+    "rails-server": "foreman start",
     "test": "rspec"
   }
 }
