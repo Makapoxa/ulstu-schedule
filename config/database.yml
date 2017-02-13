@@ -2,16 +2,17 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  username: user
 
 development:
   <<: *default
+  username: user
   database: schedule-dev
 
 test:
   <<: *default
+  username: user
   database: schedule-test
 
 production:
   <<: *default
-  database: schedule
+  url: <%= ENV['DATABASE_URL'] %>
