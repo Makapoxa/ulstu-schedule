@@ -26,8 +26,8 @@ class ImportSchedulesService
     table.each_with_index do |row, id|
       next unless days.include? row.first
       day = schedule.days.find_or_create_by(name: row.shift, week: (id > 7 ? 2 : 1))
+      day.pairs.map(&:destroy)
       row.each do |pair|
-        day.pairs.map(&:destroy)
         day.pairs.create(info: pair)
       end
     end

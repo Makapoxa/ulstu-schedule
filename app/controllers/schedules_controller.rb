@@ -1,8 +1,9 @@
 class SchedulesController < ApplicationController
   def show
     schedule = Schedule.find_by(id: params[:id])
-    ImportSchedulesService.load_days(params[:id]) unless schedule
-    schedule.reload
+    return unless schedule
+    ImportSchedulesService.load_days(schedule.id)
+    schedule = Schedule.joins(days: [:pairs]).find_by(id: params[:id])
     @schedule = ActiveModelSerializers::SerializableResource.new(schedule).serializable_hash({})
     @schedule[:days] = ActiveModelSerializers::SerializableResource.new(schedule.days).serializable_hash({})
   end
