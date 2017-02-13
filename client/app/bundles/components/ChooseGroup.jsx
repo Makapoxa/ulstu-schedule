@@ -23,7 +23,9 @@ export default class ChooseGroup extends React.Component {
   render() {
     const {schedules} = this.props;
     return (
-      <div className='col-md-12 col-xs-12'>
+      <br />
+      <br />
+      <div className='col-md-12'>
         <div className='form-group'>
           <select ref='select2'>
             {

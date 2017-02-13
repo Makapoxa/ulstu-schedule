@@ -31145,7 +31145,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'col-md-12 col-xs-12' },
+	        { className: 'col-md-12' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'form-group' },
