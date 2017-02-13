@@ -3,16 +3,6 @@ default: &default
   pool: 5
   timeout: 5000
 
-development:
-  <<: *default
-  username: user
-  database: schedule-dev
-
-test:
-  <<: *default
-  username: user
-  database: schedule-test
-
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
