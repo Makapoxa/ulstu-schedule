@@ -12,7 +12,7 @@ export default class Pair extends React.Component {
   render () {
     const {pair} = this.props;
     return (
-      <div className='form-control'>{pair}</div>
+      <div className='form-control pair'>{pair}</div>
     );
   }
 }
