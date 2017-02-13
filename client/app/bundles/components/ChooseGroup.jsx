@@ -12,7 +12,7 @@ export default class ChooseGroup extends React.Component {
   }
 
   componentDidMount() {
-    $(this.refs.select2).select2({});
+    $(this.refs.select2).select2();
   }
 
   handleSubmit() {
@@ -55,31 +55,41 @@ export default class ChooseGroup extends React.Component {
       <div className='col-md-12 selection'>
         <div className='form-group'>
           <select ref='select2' className='padding-top'>
-            {
-              courses.first.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
+            <optgroup label='Первый курс'>
+              {
+                courses.first.map(function(schedule) {
+                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                })
+              }
+            </optgroup>
+            <optgroup label='Второй курс'>
             {
               courses.second.map(function(schedule) {
                 return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
               })
             }
-            {
-              courses.third.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
-            {
-              courses.fourth.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
-            {
-              courses.fifth.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
+            </optgroup>
+            <optgroup label='Третий курс'>
+              {
+                courses.third.map(function(schedule) {
+                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                })
+              }
+            </optgroup>
+            <optgroup label='Четвертый курс'>
+              {
+                courses.fourth.map(function(schedule) {
+                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                })
+              }
+            </optgroup>
+            <optgroup label='Пятый курс'>
+              {
+                courses.fifth.map(function(schedule) {
+                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                })
+              }
+            </optgroup>
           </select>
           <br />
           <br />

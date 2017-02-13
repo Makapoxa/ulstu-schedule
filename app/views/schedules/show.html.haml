@@ -1,2 +1,4 @@
-%h1 Расписание группы #{@schedule[:text]}
+%h1
+  Расписание группы #{@schedule[:text]}
+  = link_to ' Сменить группу', reset_path
 = react_component 'Schedule', props: { schedule: @schedule }

@@ -18,7 +18,7 @@ export default class Day extends React.Component {
       <div>{day.name}</div>
       <div>
         {pairs.map(function(pair, index) {
-          return <Pair key={index} pair={pair} />;
+          return <Pair key={index} pair={pair} index={index} />;
         })}
       </div>
     </div>

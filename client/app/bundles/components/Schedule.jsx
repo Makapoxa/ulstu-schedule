@@ -25,7 +25,6 @@ export default class Schedule extends React.Component {
     const {week} = this.state;
     return (
         <div>
-          <a href='/reset'>Сменить группу</a>
           <select className='form-control' onChange={this.selectWeek.bind(this)}>
             <option value={1}>Первая неделя</option>
             <option value={2}>Вторая неделя</option>
