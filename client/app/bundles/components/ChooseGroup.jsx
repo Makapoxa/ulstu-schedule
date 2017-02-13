@@ -12,7 +12,7 @@ export default class ChooseGroup extends React.Component {
   }
 
   componentDidMount() {
-    $(this.refs.select2).select2();
+    $(this.refs.select2).select2({});
   }
 
   handleSubmit() {
@@ -51,40 +51,12 @@ export default class ChooseGroup extends React.Component {
       }
     });
 
+    console.log(courses);
+
     return (
       <div className='col-md-12 selection'>
         <div className='form-group'>
-          <select ref='select2'>
-            <option value='first' disabled='disabled'>Первый курс</option>
-            {
-              courses.first.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
-            <option value='second' disabled='disabled'>Второй курс</option>
-            {
-              courses.second.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
-            <option value='third' disabled='disabled'>Третий курс</option>
-            {
-              courses.third.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
-            <option value='fourth' disabled='disabled'>Четвертый курс</option>
-            {
-              courses.fourth.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
-            <option value='fifth' disabled='disabled'>Пятый курс</option>
-            {
-              courses.fifth.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
-              })
-            }
+          <select ref='select2' className='padding-top'>
           </select>
           <br />
           <br />
