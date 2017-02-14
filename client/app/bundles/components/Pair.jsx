@@ -40,10 +40,9 @@ export default class Pair extends React.Component {
         break;
     }
     return (
-      <div className='form-control pair row'>
-        <div className='col-md-1 col-xs-1'>{index + 1}</div>
-        <div className='col-md-10 col-xs-9'>{pair}</div>
-        <div className='col-md-1 col-xs-2'>{time}</div>
+      <div className='row border'>
+        <div className='col-xs-2'>{index + 1}<br />{time}</div>
+        <div className='col-xs-10 pair'>{pair}</div>
       </div>
     );
   }
