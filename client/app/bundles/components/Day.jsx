@@ -24,9 +24,11 @@ export default class Day extends React.Component {
       <div>
         <div>{day.name}</div>
         <table className='table table-striped'>
-          {pairs.map(function(pair, index) {
-            return (<Pair key={index} pair={pair} index={index} />);
-          })}
+          <tbody>
+            {pairs.map(function(pair, index) {
+              return (<Pair key={index} pair={pair} index={index} />);
+            })}
+          </tbody>
         </table>
       </div>
     );
