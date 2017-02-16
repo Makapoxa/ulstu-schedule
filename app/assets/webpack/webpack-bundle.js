@@ -31326,6 +31326,7 @@
 	            '\u0412\u0442\u043E\u0440\u0430\u044F \u043D\u0435\u0434\u0435\u043B\u044F'
 	          )
 	        ),
+	        _react2.default.createElement('br', null),
 	        days.filter(function (day) {
 	          return day.week == week;
 	        }).map(function (day, index) {
@@ -31501,7 +31502,15 @@
 	        _react2.default.createElement(
 	          'td',
 	          { className: 'col-xs-3 center' },
-	          index + 1,
+	          _react2.default.createElement(
+	            'b',
+	            null,
+	            _react2.default.createElement(
+	              'font',
+	              { className: 'number' },
+	              index + 1
+	            )
+	          ),
 	          ':\xA0\xA0',
 	          time
 	        ),

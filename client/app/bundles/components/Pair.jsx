@@ -41,7 +41,7 @@ export default class Pair extends React.Component {
     }
     return (
       <tr className='border adjust-height'>
-        <td className='col-xs-3 center'>{index + 1}:&nbsp;&nbsp;{time}</td>
+        <td className='col-xs-3 center'><b><font className='number'>{index + 1}</font></b>:&nbsp;&nbsp;{time}</td>
         <td className='col-xs-9 pair center'>{pair}</td>
       </tr>
     );

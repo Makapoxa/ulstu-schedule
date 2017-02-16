@@ -30,11 +30,12 @@ export default class Schedule extends React.Component {
             <option value={1}>Первая неделя</option>
             <option value={2}>Вторая неделя</option>
           </select>
-        {
-          days.filter(function(day){return day.week == week}).map(function(day, index) {
-            return (<Day key={index} day={day} />);
-          })
-        }
+          <br />
+          {
+            days.filter(function(day){return day.week == week}).map(function(day, index) {
+              return (<Day key={index} day={day} />);
+            })
+          }
         </div>
     );
   }

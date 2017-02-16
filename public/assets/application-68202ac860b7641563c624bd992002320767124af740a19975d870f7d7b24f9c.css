@@ -9767,22 +9767,38 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 }
 
 /* line 14, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.adjust-height {
+  min-height: 43px !important;
+}
+
+/* line 18, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
 .padding-top {
   padding-top: 20px;
 }
 
-/* line 18, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
-.row {
-  margin-top: -1px !important;
-  margin-left: 0px !important;
-}
-
-/* line 23, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
-.col-xs-2 {
+/* line 22, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.col-xs-3, .col-xs-9 {
   border-right: 1px solid rgba(86, 61, 124, 0.2);
+  min-height: 43px !important;
 }
 
 /* line 27, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
 .border {
   border: 1px solid rgba(86, 61, 124, 0.2);
+}
+
+/* line 31, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+/* line 36, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+font.number {
+  font-size: 18px;
+}
+
+/* line 40, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #d9d9d9;
 }
