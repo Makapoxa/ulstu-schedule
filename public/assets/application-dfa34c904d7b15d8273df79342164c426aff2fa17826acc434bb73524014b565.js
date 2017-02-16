@@ -49137,7 +49137,7 @@ S2.define('jquery.select2',[
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit() {
-	      var url = '/session?group_id=' + $(this.refs.select2).val();
+	      var url = '/session?group_url=' + $(this.refs.select2).val();
 	      document.location.assign(url);
 	    }
 	  }, {
@@ -49189,7 +49189,7 @@ S2.define('jquery.select2',[
 	              courses.first.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49200,7 +49200,7 @@ S2.define('jquery.select2',[
 	              courses.second.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49211,7 +49211,7 @@ S2.define('jquery.select2',[
 	              courses.third.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49222,7 +49222,7 @@ S2.define('jquery.select2',[
 	              courses.fourth.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49233,7 +49233,7 @@ S2.define('jquery.select2',[
 	              courses.fifth.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49407,12 +49407,13 @@ S2.define('jquery.select2',[
 	          day.name
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-12 border' },
+	          'table',
+	          { className: 'table table-striped' },
 	          pairs.map(function (pair, index) {
 	            return _react2.default.createElement(_Pair2.default, { key: index, pair: pair, index: index });
 	          })
-	        )
+	        ),
+	        _react2.default.createElement('br', null)
 	      );
 	    }
 	  }]);
@@ -49493,18 +49494,17 @@ S2.define('jquery.select2',[
 	          break;
 	      }
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row' },
+	        'tr',
+	        { className: 'row border' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-2' },
+	          'td',
+	          { className: 'col-xs-3 center' },
 	          index + 1,
-	          '/',
 	          time
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-10 pair' },
+	          'td',
+	          { className: 'col-xs-9 pair center' },
 	          pair
 	        )
 	      );

@@ -11,19 +11,24 @@
   height: auto;
 }
 
+.adjust-height {
+  min-height: 43px !important;
+}
+
 .padding-top {
   padding-top: 20px;
 }
 
-.row {
-  margin-top: -1px !important;
-  margin-left: 0px !important;
-}
-
-.col-xs-2 {
+.col-xs-3, .col-xs-9 {
   border-right: 1px solid rgba(86, 61, 124, 0.2);
+  min-height: 43px !important;
 }
 
 .border {
   border: 1px solid rgba(86,61,124,.2);
+}
+
+.center {
+  text-align: center;
+  vertical-align: middle;
 }

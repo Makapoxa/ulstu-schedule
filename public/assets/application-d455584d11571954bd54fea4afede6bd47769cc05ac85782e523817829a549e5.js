@@ -49364,7 +49364,7 @@ S2.define('jquery.select2',[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Pair = __webpack_require__(573);
+	var _Pair = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Pair\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _Pair2 = _interopRequireDefault(_Pair);
 
@@ -49406,9 +49406,14 @@ S2.define('jquery.select2',[
 	          null,
 	          day.name
 	        ),
-	        pairs.map(function (pair, index) {
-	          return _react2.default.createElement(_Pair2.default, { key: index, pair: pair, index: index });
-	        })
+	        _react2.default.createElement(
+	          'table',
+	          { className: 'table-striped' },
+	          pairs.map(function (pair, index) {
+	            return _react2.default.createElement(_Pair2.default, { key: index, pair: pair, index: index });
+	          })
+	        ),
+	        _react2.default.createElement('br', null)
 	      );
 	    }
 	  }]);
@@ -49422,101 +49427,7 @@ S2.define('jquery.select2',[
 	exports.default = Day;
 
 /***/ },
-/* 573 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(510);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Pair = function (_React$Component) {
-	  _inherits(Pair, _React$Component);
-
-	  function Pair(props, _railsContext) {
-	    _classCallCheck(this, Pair);
-
-	    return _possibleConstructorReturn(this, (Pair.__proto__ || Object.getPrototypeOf(Pair)).call(this, props));
-	  }
-
-	  _createClass(Pair, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props,
-	          index = _props.index,
-	          pair = _props.pair;
-
-	      var time = null;
-	      switch (index) {
-	        case 0:
-	          time = '8:00-9:30';
-	          break;
-	        case 1:
-	          time = '9:40-11:10';
-	          break;
-	        case 2:
-	          time = '11:30-13:00';
-	          break;
-	        case 3:
-	          time = '13:10-14:40';
-	          break;
-	        case 4:
-	          time = '14:50-16:20';
-	          break;
-	        case 5:
-	          time = '16:30-18:00';
-	          break;
-	        case 6:
-	          time = '18:10-19:40';
-	          break;
-	        case 7:
-	          time = '19:50-21:20';
-	          break;
-	      }
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row border' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-2' },
-	          index + 1,
-	          _react2.default.createElement('br', null),
-	          time
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-10 pair' },
-	          pair
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Pair;
-	}(_react2.default.Component);
-
-	Pair.propTypes = {
-	  index: _react.PropTypes.integer,
-	  pair: _react.PropTypes.string
-	};
-	exports.default = Pair;
-
-/***/ },
+/* 573 */,
 /* 574 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
