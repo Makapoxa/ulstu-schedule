@@ -9754,3 +9754,35 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .select2 {
   width: 100% !important;
 }
+
+/* line 5, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.selection {
+  margin-top: 20px;
+}
+
+/* line 9, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.pair {
+  min-height: 43px;
+  height: auto;
+}
+
+/* line 14, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.padding-top {
+  padding-top: 20px;
+}
+
+/* line 18, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.row {
+  margin-top: -1px !important;
+  margin-left: 0px !important;
+}
+
+/* line 23, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.col-xs-2 {
+  border-right: 1px solid rgba(86, 61, 124, 0.2);
+}
+
+/* line 27, /Users/user/homework/ulstu-schedule/app/assets/stylesheets/styles.scss */
+.border {
+  border: 1px solid rgba(86, 61, 124, 0.2);
+}

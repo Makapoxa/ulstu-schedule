@@ -1,7 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    ImportSchedulesService.load_schedules if Schedule.count == 0
-    redirect_to schedule_path(session[:group_id]) if session[:group_id]
-    @schedules = ActiveModel::SerializableResource.new(Schedule.all).serializable_hash
+    redirect_to group_url_path(session[:group_url]) if session[:group_url]
+    @schedules = ImportSchedulesService.load_schedules
   end
 end

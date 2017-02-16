@@ -16,7 +16,7 @@ export default class ChooseGroup extends React.Component {
   }
 
   handleSubmit() {
-    const url = '/session?group_id=' + $(this.refs.select2).val();
+    const url = '/session?group_url=' + $(this.refs.select2).val();
     document.location.assign(url);
   }
 
@@ -58,35 +58,35 @@ export default class ChooseGroup extends React.Component {
             <optgroup label='Первый курс'>
               {
                 courses.first.map(function(schedule) {
-                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                  return (<option key={schedule.id} value={schedule.url}>{schedule.text}</option>);
                 })
               }
             </optgroup>
             <optgroup label='Второй курс'>
             {
               courses.second.map(function(schedule) {
-                return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                return (<option key={schedule.id} value={schedule.url}>{schedule.text}</option>);
               })
             }
             </optgroup>
             <optgroup label='Третий курс'>
               {
                 courses.third.map(function(schedule) {
-                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                  return (<option key={schedule.id} value={schedule.url}>{schedule.text}</option>);
                 })
               }
             </optgroup>
             <optgroup label='Четвертый курс'>
               {
                 courses.fourth.map(function(schedule) {
-                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                  return (<option key={schedule.id} value={schedule.url}>{schedule.text}</option>);
                 })
               }
             </optgroup>
             <optgroup label='Пятый курс'>
               {
                 courses.fifth.map(function(schedule) {
-                  return (<option key={schedule.id} value={schedule.id}>{schedule.text}</option>);
+                  return (<option key={schedule.id} value={schedule.url}>{schedule.text}</option>);
                 })
               }
             </optgroup>

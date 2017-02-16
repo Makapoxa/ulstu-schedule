@@ -49137,7 +49137,7 @@ S2.define('jquery.select2',[
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit() {
-	      var url = '/session?group_id=' + $(this.refs.select2).val();
+	      var url = '/session?group_url=' + $(this.refs.select2).val();
 	      document.location.assign(url);
 	    }
 	  }, {
@@ -49189,7 +49189,7 @@ S2.define('jquery.select2',[
 	              courses.first.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49200,7 +49200,7 @@ S2.define('jquery.select2',[
 	              courses.second.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49211,7 +49211,7 @@ S2.define('jquery.select2',[
 	              courses.third.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49222,7 +49222,7 @@ S2.define('jquery.select2',[
 	              courses.fourth.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49233,7 +49233,7 @@ S2.define('jquery.select2',[
 	              courses.fifth.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -49312,7 +49312,7 @@ S2.define('jquery.select2',[
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'select',
 	          { className: 'form-control', onChange: this.selectWeek.bind(this) },
@@ -49391,6 +49391,13 @@ S2.define('jquery.select2',[
 	      var day = this.props.day;
 	      var pairs = this.props.day.pairs;
 
+	      if (pairs[7] == null) {
+	        pairs.splice(7, 1);
+	      }
+	      if (pairs[6] == null) {
+	        pairs.splice(6, 1);
+	      }
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -49399,13 +49406,9 @@ S2.define('jquery.select2',[
 	          null,
 	          day.name
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          pairs.map(function (pair, index) {
-	            return _react2.default.createElement(_Pair2.default, { key: index, pair: pair, index: index });
-	          })
-	        )
+	        pairs.map(function (pair, index) {
+	          return _react2.default.createElement(_Pair2.default, { key: index, pair: pair, index: index });
+	        })
 	      );
 	    }
 	  }]);
@@ -49487,21 +49490,18 @@ S2.define('jquery.select2',[
 	      }
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'form-control pair' },
+	        { className: 'row border' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-md-1 col-xs-1' },
-	          index + 1
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-md-10 col-xs-9' },
-	          pair
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-md-1 col-xs-2' },
+	          { className: 'col-xs-2' },
+	          index + 1,
+	          _react2.default.createElement('br', null),
 	          time
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-xs-10 pair' },
+	          pair
 	        )
 	      );
 	    }

@@ -31135,7 +31135,7 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit() {
-	      var url = '/session?group_id=' + $(this.refs.select2).val();
+	      var url = '/session?group_url=' + $(this.refs.select2).val();
 	      document.location.assign(url);
 	    }
 	  }, {
@@ -31187,7 +31187,7 @@
 	              courses.first.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -31198,7 +31198,7 @@
 	              courses.second.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -31209,7 +31209,7 @@
 	              courses.third.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -31220,7 +31220,7 @@
 	              courses.fourth.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })
@@ -31231,7 +31231,7 @@
 	              courses.fifth.map(function (schedule) {
 	                return _react2.default.createElement(
 	                  'option',
-	                  { key: schedule.id, value: schedule.id },
+	                  { key: schedule.id, value: schedule.url },
 	                  schedule.text
 	                );
 	              })

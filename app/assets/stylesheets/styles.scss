@@ -16,7 +16,12 @@
 }
 
 .row {
+  margin-top: -1px !important;
   margin-left: 0px !important;
+}
+
+.col-xs-2 {
+  border-right: 1px solid rgba(86, 61, 124, 0.2);
 }
 
 .border {

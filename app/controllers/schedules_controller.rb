@@ -1,20 +1,17 @@
 class SchedulesController < ApplicationController
   def show
-    schedule = Schedule.find_by(id: params[:id])
+    schedule = ImportSchedulesService.schedule(params[:group_url])
     return unless schedule
-    ImportSchedulesService.load_days(schedule.id)
-    schedule = Schedule.joins(days: [:pairs]).find_by(id: params[:id])
-    @schedule = ActiveModelSerializers::SerializableResource.new(schedule).serializable_hash({})
-    @schedule[:days] = ActiveModelSerializers::SerializableResource.new(schedule.days).serializable_hash({})
+    @schedule = schedule.to_hash
   end
 
   def choose
-    session[:group_id] = params[:group_id] if params[:group_id]
+    session[:group_url] = params[:group_url] if params[:group_url]
     redirect_to root_path
   end
 
   def reset
-    session[:group_id] = nil
+    session[:group_url] = nil
     redirect_to root_path
   end
 end
