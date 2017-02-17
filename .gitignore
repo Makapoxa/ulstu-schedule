@@ -20,5 +20,7 @@
 npm-debug.log*
 node_modules
 client/node_modules
+vendor/assets
+public/assets
 
 # Generated js bundles
