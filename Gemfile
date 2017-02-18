@@ -22,7 +22,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
 gem 'turbolinks', '~> 5'
 
-
 group :development, :test do
   gem 'pry'
 end

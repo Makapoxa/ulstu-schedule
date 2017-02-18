@@ -8,7 +8,8 @@ class Pair
   end
 
   def to_s
-    result = (info.include? '_  ') ? nil : info
+    window = '_  '
+    result = info.include? window ? nil : info
     result
   end
 end

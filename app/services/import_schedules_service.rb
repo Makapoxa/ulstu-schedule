@@ -1,6 +1,5 @@
 require 'open-uri'
 class ImportSchedulesService
-
   def self.load_schedules
     agent = Mechanize.new
     page = agent.get('http://ulstu.ru/schedule/students/raspisan.htm')
@@ -8,14 +7,14 @@ class ImportSchedulesService
     page.links.each do |link|
       next if link.text.blank? || link.href.blank?
       url = link.href.split('.').first
-      schedule =  Schedule.new(text: link.text, url: url)
+      schedule = Schedule.new(text: link.text, url: url)
       schedules << schedule
     end
     schedules
   end
 
   def self.schedule(schedule_id)
-    days = ['Пнд', 'Втр', 'Срд', 'Чтв', 'Птн', 'Сбт']
+    days = %w(Пнд Втр Срд Чтв Птн Сбт)
     schedule_url = "http://ulstu.ru/schedule/students/#{schedule_id}.htm"
     doc = Nokogiri::HTML(open(schedule_url))
     name = doc.css('font')[1].text
@@ -27,7 +26,6 @@ class ImportSchedulesService
     table.each_with_index do |row, id|
       next unless days.include? row.first
       day = Day.new(name: row.shift, week: (id > 7 ? 2 : 1))
-      pairs = []
       day.pairs = row.map do |pair|
         Pair.new(info: pair)
       end
