@@ -9,7 +9,7 @@ class Pair
 
   def to_s
     window = '_  '
-    result = info.include? window ? nil : info
+    result = info.include?(window) ? nil : info if info
     result
   end
 end

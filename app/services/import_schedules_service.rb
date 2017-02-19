@@ -31,6 +31,10 @@ class ImportSchedulesService
       end
       schedule_days << day
     end
-    Schedule.new(text: name, url: schedule_url, days: schedule_days)
+
+    week = (Date.parse(Time.current.to_s).cweek % 2)
+    week = 2 if week.zero?
+    current_day = (Date.parse(Time.current.to_s).cwday - 1)
+    Schedule.new(text: name, url: schedule_url, days: schedule_days, week: week, current_day: current_day)
   end
 end

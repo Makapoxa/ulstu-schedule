@@ -20,7 +20,6 @@
 npm-debug.log*
 node_modules
 client/node_modules
-./app/assets/webpack
 vendor/assets
 public/assets
 

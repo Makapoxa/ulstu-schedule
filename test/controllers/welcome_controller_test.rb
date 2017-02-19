@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class WelcomeControllerTest < ActionDispatch::IntegrationTest
+class WelcomeControllerTest < ActiveSupport::TestCase
   test 'should get index' do
-    get welcome_index_url
+    get :index
     assert_response :success
   end
 end

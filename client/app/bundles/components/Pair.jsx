@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 export default class Pair extends React.Component {
   static propTypes = {
-    index: PropTypes.integer,
+    index: PropTypes.number,
     pair: PropTypes.string,
   };
 
