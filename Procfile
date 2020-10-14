@@ -1,2 +1,2 @@
-client: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
-server: rails s -p ${PORT}
+web: rails s -b 0.0.0.0 -p 80
+-client: sh -c 'rm -rf public/packs/* || true && bin/webpack -w'

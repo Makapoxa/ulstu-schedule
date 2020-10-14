@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { PropTypes } from 'prop-types';
+import $ from 'jquery';
 
 export default class Pair extends React.Component {
   static propTypes = {
@@ -10,9 +12,9 @@ export default class Pair extends React.Component {
     super(props);
   }
 
-  render () {
-    const {index, pair} = this.props;
-    var time = null;
+  render() {
+    const { index, pair } = this.props;
+    let time = null;
     switch (index) {
       case 0:
         time = '8:00-9:30';
@@ -40,9 +42,13 @@ export default class Pair extends React.Component {
         break;
     }
     return (
-      <tr className='border adjust-height'>
-        <td className='col-xs-3 center'><b><font className='number'>{index + 1}</font></b>:&nbsp;&nbsp;{time}</td>
-        <td className='col-xs-9 pair center'>{pair}</td>
+      <tr className="border adjust-height">
+        <td className="col-xs-3 center">
+          <b><font className="number">{index + 1}</font></b>
+          :&nbsp;&nbsp;
+          {time}
+        </td>
+        <td className="col-xs-9 pair center">{pair}</td>
       </tr>
     );
   }

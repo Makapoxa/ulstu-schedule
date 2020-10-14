@@ -1,8 +1,6 @@
-Rails:
-  Enabled: true
-
 AllCops:
-  TargetRubyVersion: 2.3
+  NewCops: enable
+  TargetRubyVersion: 2.5
   Exclude:
     - 'client/**/*'
     - 'db/**/*'
@@ -30,7 +28,7 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 10
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 160
 
 Metrics/AbcSize:
