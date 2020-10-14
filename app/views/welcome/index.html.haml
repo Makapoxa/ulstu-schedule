@@ -1,2 +1,3 @@
-%h1 Выбери группу
-= react_component 'ChooseGroup', props: { schedules: @schedules }
+.container
+  %h1 Выбери группу
+  = react_component 'ChooseGroup', props: { schedules: @schedules, prerender: true }

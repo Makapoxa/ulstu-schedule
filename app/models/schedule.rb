@@ -1,5 +1,5 @@
 class Schedule
-  attr_accessor :days, :url, :text, :week, :current_day
+  attr_accessor :days, :url, :text, :week, :current_day, :part
 
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -12,7 +12,8 @@ class Schedule
       url: url,
       text: text,
       currentDay: current_day,
-      week: week
+      week: week,
+      part: part
     }
     attrs[:days] = days.map(&:to_hash) if days.present?
     attrs

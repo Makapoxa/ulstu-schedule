@@ -19,8 +19,14 @@
 # React on Rails
 npm-debug.log*
 node_modules
-client/node_modules
 vendor/assets
 public/assets
 
 # Generated js bundles
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

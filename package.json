@@ -1,14 +1,32 @@
 {
-  "name": "react-webpack-rails-tutorial",
-  "version": "0.0.1",
-  "private": true,
-  "engines": {
-    "node": "6.9.0",
-    "npm": "4.1.1"
-  },
   "scripts": {
-    "postinstall": "cd client && npm install",
-    "rails-server": "foreman start",
-    "test": "rspec"
+    "lint": "yarn run eslint -- --ext .js --ext .jsx app/javascript"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@rails/webpacker": "5.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-on-rails": "11.3.1",
+    "react-select2": "^4.0.3",
+    "select2": "^4.0.13"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "webpack-dev-server": "^3.11.0"
   }
 }
