@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootswatch-rails'
 gem 'execjs'
 gem 'foreman'
