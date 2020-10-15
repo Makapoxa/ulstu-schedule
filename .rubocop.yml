@@ -2,16 +2,11 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 2.5.1
   Exclude:
-    - 'client/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'script/**/*'
-    - 'test/factories/**/*'
-    - 'lib/configus.rb'
     - 'node_modules/**/*'
     - 'tmp/**/*'
     - 'build_cache/**/*'
     - '**/*.haml'
+    - 'vendor/bundle/**/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
