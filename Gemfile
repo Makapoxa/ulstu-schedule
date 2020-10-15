@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.5.1'
 
-gem 'foreman'
-gem 'haml-rails'
+gem 'foreman', '~> 0.87.2'
+gem 'haml-rails', '~> 2.0.1'
 gem 'listen'
-gem 'mechanize'
-gem 'nokogiri'
-gem 'puma'
+gem 'mechanize', '~> 2.7.6'
+gem 'nokogiri', '~> 1.10.10'
+gem 'puma', '~> 5.0.2'
 gem 'rails', '~> 5.2.3'
-gem 'react_on_rails'
-gem 'webpacker', '~> 5.x'
+gem 'react_on_rails', '~> 12.0.3'
+gem 'webpacker', '~> 5.2.1'
 
 group :development, :test do
   gem 'haml-lint'

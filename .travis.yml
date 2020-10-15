@@ -1,0 +1,19 @@
+language: ruby
+cache:
+  bundler: true
+  yarn: true
+  directories:
+   - node_modules
+   - public/packs
+   - tmp/cache/webpacker
+   - vendor/bundle 
+rvm:
+  - 2.5.1
+before_script:
+  - nvm install 14.13.1
+  - yarn
+script:
+  - bundle exec rubocop
+  - bundle exec haml-lint
+  - yarn lint
+
