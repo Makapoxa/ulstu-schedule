@@ -1,1 +1,1 @@
-web: puma
+web: bin/webpack && puma
