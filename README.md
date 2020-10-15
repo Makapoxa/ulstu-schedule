@@ -19,7 +19,7 @@ node_js v14.13.1
 bundle
 yarn
 bin/webpack
-foreman start
+foreman start -f Procfile.dev
 ```
 
 Или просто посетите https://ulstu-schedule.herokuapp.com/
