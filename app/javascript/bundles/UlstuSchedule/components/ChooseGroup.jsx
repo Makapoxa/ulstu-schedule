@@ -6,11 +6,16 @@ export default class ChooseGroup extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { groupId: '', currentPart: '' };
+    this.state = {
+      groupId: props.schedules[0].url,
+      currentPart: props.schedules[0].part,
+    };
   }
 
   componentDidMount() {
-    $('.select2').select2().on('select2:selecting', this.handleChange.bind(this));
+    $('.select2').select2({
+      placeholder: 'Выбери группу',
+    }).on('select2:selecting', this.handleChange.bind(this));
   }
 
   handleChange(e) {

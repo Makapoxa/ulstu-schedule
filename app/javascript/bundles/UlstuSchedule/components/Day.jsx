@@ -6,9 +6,11 @@ import Pair from './Pair';
 export default class Day extends React.Component {
   componentDidMount() {
     if ($('#current').length) {
-      const offset = $('#current').offset().top - 10;
-      $('html,body').animate({
-        scrollTop: offset,
+      window.addEventListener('load', () => {
+        const offset = $('#current').offset().top;
+        setTimeout($('html,body').animate({
+          scrollTop: offset,
+        }, 600), 1000);
       });
     }
   }
