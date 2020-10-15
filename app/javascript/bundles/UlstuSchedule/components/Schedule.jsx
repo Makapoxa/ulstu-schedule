@@ -1,52 +1,61 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
-import $ from 'jquery';
+import PropTypes from 'prop-types';
 import Day from './Day';
 
 export default class Schedule extends React.Component {
-  static propTypes = {
-    week: PropTypes.number,
-    currentDay: PropTypes.number,
-    schedule: PropTypes.shape({
-      id: PropTypes.number,
-      text: PropTypes.string,
-      days: PropTypes.array,
-    }),
-  };
-
-  constructor(props, _railsContext) {
+  constructor(props) {
     super(props);
 
-    this.state = { week: props.schedule.week };
+    this.state = { weekState: props.schedule.week };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ week: event.target.value });
+    this.setState({ weekState: parseInt(event.target.value, 10) });
   }
 
   render() {
-    const { days } = this.props.schedule;
-    const { currentDay } = this.props;
-    const { week } = this.state;
+    const { schedule } = this.props;
+    const { weekState } = this.state;
+    const { days, week, currentDay } = schedule;
+    const daysRender = days.filter((day) => day.week === weekState).map((day, index) => (
+      <Day
+        key={day.name + day.week}
+        day={day}
+        isCurrent={currentDay === index}
+        currentWeek={week}
+      />
+    ));
     return (
       <div>
         <br />
-        <select className="form-control" value={week} onChange={this.handleChange}>
+        <select className="form-control" value={weekState} onChange={this.handleChange}>
           <option value={1}>
             Первая неделя
-            {this.props.schedule.week == 1 ? '(Сейчас)' : null}
+            { week === 1 ? ' (Сейчас)' : null }
           </option>
           <option value={2}>
             Вторая неделя
-            {this.props.schedule.week == 2 ? '(Сейчас)' : null}
+            { week === 2 ? ' (Сейчас)' : null }
           </option>
         </select>
         <br />
         {
-            days.filter((day) => day.week == week).map((day, index) => (<Day key={index} day={day} isCurrent={currentDay == index} />))
-          }
+          daysRender
+        }
       </div>
     );
   }
 }
+
+Schedule.propTypes = {
+  schedule: PropTypes.shape({
+    days: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      pairs: PropTypes.arrayOf(PropTypes.string).isRequired,
+      week: PropTypes.number.isRequired,
+    }).isRequired).isRequired,
+    week: PropTypes.number.isRequired,
+    currentDay: PropTypes.number.isRequired,
+  }).isRequired,
+};

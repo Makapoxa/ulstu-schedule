@@ -12,6 +12,7 @@ gem 'react_on_rails'
 gem 'webpacker', '~> 5.x'
 
 group :development, :test do
+  gem 'haml-lint'
   gem 'pry'
   gem 'readline'
   gem 'rubocop'

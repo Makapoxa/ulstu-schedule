@@ -1,5 +1,5 @@
 .container
   %h1
-    Расписание группы #{@schedule[:text]}
+    Расписание группы #{@schedule_props[:schedule][:text]}
     = link_to ' Сменить группу', reset_path
-  = react_component 'Schedule', props: { schedule: @schedule, prerender: true }
+  = react_component 'Schedule', props: @schedule_props

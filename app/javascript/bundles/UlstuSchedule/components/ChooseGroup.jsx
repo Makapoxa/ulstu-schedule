@@ -1,13 +1,9 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 
 export default class ChooseGroup extends React.Component {
-  static propTypes = {
-    schedules: PropTypes.array,
-  };
-
-  constructor(props, _railsContext) {
+  constructor(props) {
     super(props);
 
     this.state = { groupId: '', currentPart: '' };
@@ -23,78 +19,54 @@ export default class ChooseGroup extends React.Component {
   }
 
   url() {
-    return `/session?group_url=${this.state.groupId}&part=${this.state.currentPart}`;
+    const { groupId, currentPart } = this.state;
+    return `/session?group_url=${groupId}&part=${currentPart}`;
   }
 
   render() {
     const { schedules } = this.props;
-    const courses = {
-      first: [],
-      second: [],
-      third: [],
-      fourth: [],
-      fifth: [],
-      sixth: [],
-    };
 
-    schedules.map((schedule) => {
-      const number = parseInt(schedule.text.split('-')[schedule.text.split('-').length - 1]);
-      switch (Math.floor(number / 10)) {
-        case 1:
-          courses.first.push(schedule);
-          break;
-        case 2:
-          courses.second.push(schedule);
-          break;
-        case 3:
-          courses.third.push(schedule);
-          break;
-        case 4:
-          courses.fourth.push(schedule);
-          break;
-        case 5:
-          courses.fifth.push(schedule);
-          break;
-        default:
-          courses.sixth.push(schedule);
-          break;
+    const courses = Array(6);
+
+    schedules.forEach((schedule) => {
+      const number = parseInt(schedule.text.split('-')[schedule.text.split('-').length - 1], 10);
+      let index = Math.floor(number / 10);
+      index = Number.isNaN(index) ? 5 : index - 1;
+
+      if (courses[index] === undefined) {
+        courses[index] = [];
       }
+
+      courses[index].push(schedule);
     });
+
+    const labels = [
+      'Первый курс',
+      'Второй курс',
+      'Третий курс',
+      'Четвертый курс',
+      'Пятый курс',
+      'Дополнительно',
+    ];
 
     return (
       <div className="form-group" id="schedules">
         <br />
-        <select className="select2 form-control" onChange={this.handleChange.bind(this)}>
-          <optgroup label="Первый курс">
-            {
-              courses.first.map((schedule) => (<option key={schedule.url + schedule.part} value={JSON.stringify({ url: schedule.url, part: schedule.part })}>{schedule.text}</option>))
-            }
-          </optgroup>
-          <optgroup label="Второй курс">
-            {
-              courses.second.map((schedule) => (<option key={schedule.url + schedule.part} value={JSON.stringify({ url: schedule.url, part: schedule.part })}>{schedule.text}</option>))
-            }
-          </optgroup>
-          <optgroup label="Третий курс">
-            {
-              courses.third.map((schedule) => (<option key={schedule.url + schedule.part} value={JSON.stringify({ url: schedule.url, part: schedule.part })}>{schedule.text}</option>))
-            }
-          </optgroup>
-          <optgroup label="Четвертый курс">
-            {
-              courses.fourth.map((schedule) => (<option key={schedule.url + schedule.part} value={JSON.stringify({ url: schedule.url, part: schedule.part })}>{schedule.text}</option>))
-            }
-          </optgroup>
-          <optgroup label="Пятый курс">
-            {
-              courses.fifth.map((schedule) => (<option key={schedule.url + schedule.part} value={JSON.stringify({ url: schedule.url, part: schedule.part })}>{schedule.text}</option>))
-            }
-          </optgroup>
-          <optgroup label="Дополнительно">
-            {
-              courses.sixth.map((schedule) => (<option key={schedule.url + schedule.part} value={JSON.stringify({ url: schedule.url, part: schedule.part })}>{schedule.text}</option>))
-            }
-          </optgroup>
+        <select className="select2 form-control">
+          {
+            courses.map((courseSchedules, i) => {
+              const schedulesOptions = courseSchedules.map((schedule) => (
+                <option
+                  key={schedule.url + schedule.part}
+                  value={JSON.stringify({ url: schedule.url, part: schedule.part })}
+                >
+                  { schedule.text }
+                </option>
+              ));
+
+              return (<optgroup key={labels[i]} label={labels[i]}>{ schedulesOptions }</optgroup>);
+            })
+          }
         </select>
         <br />
         <br />
@@ -103,3 +75,13 @@ export default class ChooseGroup extends React.Component {
     );
   }
 }
+
+ChooseGroup.propTypes = {
+  schedules: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    part: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    currentDay: PropTypes.number,
+    week: PropTypes.number,
+  })).isRequired,
+};

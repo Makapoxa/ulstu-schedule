@@ -1,55 +1,28 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
-import $ from 'jquery';
+import PropTypes from 'prop-types';
 
-export default class Pair extends React.Component {
-  static propTypes = {
-    index: PropTypes.number,
-    pair: PropTypes.string,
-  };
-
-  constructor(props, _railsContext) {
-    super(props);
-  }
-
+export default class Pair extends React.PureComponent {
   render() {
-    const { index, pair } = this.props;
-    let time = null;
-    switch (index) {
-      case 0:
-        time = '8:00-9:30';
-        break;
-      case 1:
-        time = '9:40-11:10';
-        break;
-      case 2:
-        time = '11:30-13:00';
-        break;
-      case 3:
-        time = '13:10-14:40';
-        break;
-      case 4:
-        time = '14:50-16:20';
-        break;
-      case 5:
-        time = '16:30-18:00';
-        break;
-      case 6:
-        time = '18:10-19:40';
-        break;
-      case 7:
-        time = '19:50-21:20';
-        break;
-    }
+    const { index, pair, time } = this.props;
     return (
       <tr className="border adjust-height">
         <td className="col-xs-3 center">
-          <b><font className="number">{index + 1}</font></b>
+          <b><font className="number">{ index + 1 }</font></b>
           :&nbsp;&nbsp;
-          {time}
+          { time }
         </td>
-        <td className="col-xs-9 pair center">{pair}</td>
+        <td className="col-xs-9 pair center">{ pair }</td>
       </tr>
     );
   }
 }
+
+Pair.propTypes = {
+  index: PropTypes.number.isRequired,
+  pair: PropTypes.string,
+  time: PropTypes.string.isRequired,
+};
+
+Pair.defaultProps = {
+  pair: '',
+};

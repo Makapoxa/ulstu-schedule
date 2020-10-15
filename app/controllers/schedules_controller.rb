@@ -3,7 +3,11 @@ class SchedulesController < ApplicationController
     schedule = ImportSchedulesService.schedule(params[:group_url], params[:part])
     return unless schedule
 
-    @schedule = schedule.to_hash
+    @schedule_props = { schedule: schedule.to_hash, prerender: true }
+    respond_to do |format|
+      format.html
+      format.json { render json: schedule.to_hash }
+    end
   end
 
   def choose

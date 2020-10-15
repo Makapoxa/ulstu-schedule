@@ -4,6 +4,10 @@ env:
 extends:
   - 'plugin:react/recommended'
   - airbnb
+settings:
+  import/resolver:
+    node:
+      extensions: ['.js', '.jsx', '.css', '.scss']
 parserOptions:
   ecmaFeatures:
     jsx: true
